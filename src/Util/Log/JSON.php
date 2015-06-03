@@ -50,7 +50,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
      */
     public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
     {
-    	parent::write(',');
+        parent::write(',');
         $this->writeCase(
             'error',
             $time,
@@ -71,7 +71,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
      */
     public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
-    	parent::write(',');
+        parent::write(',');
         $this->writeCase(
             'fail',
             $time,
@@ -92,7 +92,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
      */
     public function addIncompleteTest(PHPUnit_Framework_Test $test, Exception $e, $time)
     {
-    	parent::write(',');
+        parent::write(',');
         $this->writeCase(
             'error',
             $time,
@@ -114,7 +114,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
      */
     public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)
     {
-    	parent::write(',');
+        parent::write(',');
         $this->writeCase(
             'error',
             $time,
@@ -135,7 +135,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
      */
     public function addSkippedTest(PHPUnit_Framework_Test $test, Exception $e, $time)
     {
-    	parent::write(',');
+        parent::write(',');
         $this->writeCase(
             'error',
             $time,
@@ -157,7 +157,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
         $this->currentTestSuiteName = $suite->getName();
         $this->currentTestName      = '';
 
-    	parent::write('[');
+        parent::write('[');
         $this->write(
             array(
             'event' => 'suiteStart',
@@ -176,7 +176,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
     {
         $this->currentTestSuiteName = '';
         $this->currentTestName      = '';
-    	parent::write(']');
+        parent::write(']');
     }
 
     /**
@@ -189,7 +189,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
         $this->currentTestName = PHPUnit_Util_Test::describe($test);
         $this->currentTestPass = true;
 
-    	parent::write(',');
+        parent::write(',');
         $this->write(
             array(
             'event' => 'testStart',
@@ -208,7 +208,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
     public function endTest(PHPUnit_Framework_Test $test, $time)
     {
         if ($this->currentTestPass) {
-	    	parent::write(',');
+	        parent::write(',');
             $this->writeCase('pass', $time, array(), '', $test);
         }
     }
